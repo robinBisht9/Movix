@@ -1,0 +1,26 @@
+import { useEffect, useState } from "react";
+import { fetchDataFromApi } from "../utils/api";
+
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(error);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    setLoading("Loading ...");
+    setData(null);
+    setError(null);
+    fetchDataFromApi(url)
+      .then((res) => {
+        setLoading(false);
+        setData(res);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError("Something Went Wrong");
+      });
+    return () => abortController.abort();
+  }, [url]);
+  return { data, loading, error };
+};
