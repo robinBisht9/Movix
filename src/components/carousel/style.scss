@@ -10,9 +10,12 @@
     margin-bottom: 20px;
     font-weight: normal;
   }
+  .arrowContainer {
+    display: none;
+  }
   .arrow {
     font-size: 30px;
-    color: black;
+    color: wheat;
     position: absolute;
     top: 44%;
     transform: translateY(-50%);
@@ -167,4 +170,8 @@
       }
     }
   }
+}
+
+.carousel:hover > .arrowContainer {
+  display: block;
 }
