@@ -15,7 +15,7 @@ import "./style.scss";
 import { useRef } from "react";
 import Genre from "../genre/Genre";
 
-const Carousel = ({ data, loading }) => {
+const Carousel = ({ data, loading, endpoint }) => {
   const carouselContainer = useRef();
   const leftArrow = useRef();
   const rightArrow = useRef();
@@ -36,7 +36,7 @@ const Carousel = ({ data, loading }) => {
   };
 
   const handleClickOnItem = (item) => {
-    navigate(`/${item.media_type}/${item.id}/`);
+    navigate(`/${item.media_type || endpoint}/${item.id}/`);
   };
 
   const skeletonItem = () => {
@@ -64,6 +64,8 @@ const Carousel = ({ data, loading }) => {
         {!loading ? (
           <div className="carouselItems" ref={carouselContainer}>
             {data?.map((item) => {
+              console.log("item date");
+              console.log(item);
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
                 : PosterFallback;
@@ -81,7 +83,7 @@ const Carousel = ({ data, loading }) => {
                   <div className="textBlock">
                     <span className="title">{item.title || item.name}</span>
                     <span className="date">
-                      {dayjs(item.release_Date).format("MMMM D, YYYY")}
+                      {dayjs(item.release_date).format("MMMM D, YYYY")}
                     </span>
                   </div>
                 </div>

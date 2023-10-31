@@ -11,7 +11,8 @@
     font-weight: normal;
   }
   .arrowContainer {
-    display: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
   }
   .arrow {
     font-size: 30px;
@@ -173,5 +174,5 @@
 }
 
 .carousel:hover > .arrowContainer {
-  display: block;
+  opacity: 1;
 }
