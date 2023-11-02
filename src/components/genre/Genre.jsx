@@ -6,10 +6,10 @@ const Genre = ({ data }) => {
   return (
     <div className="genres">
       {data?.map((id) => {
-        if (!genres[id].name) return;
+        if (!genres[id]?.name) return;
         return (
           <div key={id} className="genre">
-            {genres[id].name}
+            {genres[id]?.name}
           </div>
         );
       })}

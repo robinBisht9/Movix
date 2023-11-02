@@ -64,8 +64,6 @@ const Carousel = ({ data, loading, endpoint }) => {
         {!loading ? (
           <div className="carouselItems" ref={carouselContainer}>
             {data?.map((item) => {
-              console.log("item date");
-              console.log(item);
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
                 : PosterFallback;
