@@ -5,6 +5,9 @@ import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import SwitchTabs from "../../components/switchTabs/switchTabs";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 import Cast from "./cast/Cast";
+import VideosSection from "./videosSection/VideosSection";
+import Recommendation from "./carousels/Recommendation";
+import Similar from "./carousels/Similar";
 
 const Details = () => {
   const { mediatype, id } = useParams();
@@ -19,6 +22,9 @@ const Details = () => {
     <div>
       <DetailsBanner video={videosData?.results?.[0]} crews={credits?.crew} />
       <Cast data={credits?.cast} loading={creditsLoading} />
+      <VideosSection data={videosData} loading={videosLoading} />
+      <Similar mediatype={mediatype} id={id} />
+      <Recommendation mediatype={mediatype} id={id} />
     </div>
   );
 };
