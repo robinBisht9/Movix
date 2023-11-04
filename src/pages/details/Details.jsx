@@ -1,8 +1,6 @@
 import { useFetch } from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
-import Carousel from "../../components/carousel/Carousel";
-import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
-import SwitchTabs from "../../components/switchTabs/switchTabs";
+
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 import Cast from "./cast/Cast";
 import VideosSection from "./videosSection/VideosSection";
